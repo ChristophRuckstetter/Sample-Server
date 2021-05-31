@@ -153,8 +153,8 @@ void FullMachineTool::InstantiateTools() {
     subTool.Locked->ReasonForLocking.StatusCode = UA_STATUSCODE_BADNOTHINGTODO;
     subTool.Identifier = ss.str();
     InstantiateOptional(subTool.Identifier, m_pServer, n);
-    InstantiateOptional(tool.ToolLife, m_pServer, n);
-    auto &toolLifeRotations = tool.ToolLife->ToolLifeEntry.Add<machineTool::ToolLife_t<std::int32_t>>(m_pServer, n, {m_nsIndex, "Rotations"});
+    InstantiateOptional(multiTool.ToolLife, m_pServer, n);
+    auto &toolLifeRotations = multiTool.ToolLife->ToolLifeEntry.Add<machineTool::MultiTool_ToolLife_t<std::int32_t>>(m_pServer, n, {m_nsIndex, "Rotations"});
     toolLifeRotations.Indication = UA_ToolLifeIndication::UA_TOOLLIFEINDICATION_OTHER;
     toolLifeRotations.Value = 512;
     toolLifeRotations.IsCountingUp = true;
